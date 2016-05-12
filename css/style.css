@@ -76,7 +76,7 @@ select {
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	border-radius: 0;
-	background:	url(/images/arrow.png) no-repeat 93% 50%;
+	background:	url(../images/arrow.png) no-repeat 93% 50%;
 	-webkit-border-radius: 5px;
 	-moz-border-radius:5px;
 	border-radius: 5px;

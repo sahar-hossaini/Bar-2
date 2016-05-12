@@ -11,17 +11,17 @@
  <h1>Progress Bars Demo</h1>
  <div class="btncontainer">
 	<div class="barcontainer">
-		<div id="bar1" class="bar" style='width:{{width1}}%;'>
+		<div id="bar1" class="bar" style='width:{{width1}}%;background:{{color1}};'>
 			<span>{{percentage1}}%</span>
 		</div>
 	</div>
 	<div class="barcontainer">
-		<div id="bar2" class="bar" style='width:{{width2}}%;'>
+		<div id="bar2" class="bar" style='width:{{width2}}%;;background:{{color2}};'>
 			<span>{{percentage2}}%</span>
 		</div>
 	</div>
 	<div class="barcontainer">
-		<div id="bar3" class="bar" style='width:{{width3}}%;'>
+		<div id="bar3" class="bar" style='width:{{width3}}%;;background:{{color3}};'>
 			<span>{{percentage3}}%</span>
 		</div>
 	</div>
@@ -30,11 +30,11 @@
 			 <option value='{{value}}'>{{name}}</option>
 	   {{/selectObj}}
 	</select>
-
+ <button id='minus25'>-25</button>
 	 <button id='minus10'>-10</button>
-	 <button id='minus25'>-25</button>
-	 <button id='add25' >+25</button>
 	 <button id='add10' >+10</button>
+	 <button id='add25' >+25</button>
+	 
 </div>
 </script> 
 <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script> 
@@ -56,10 +56,11 @@ var ractive = new Ractive({
 		}
 
 	});
-	document.getElementById('add10').addEventListener('click', function () {addstep(10);});
-	document.getElementById('add25').addEventListener('click', function () {addstep(25);});
 	document.getElementById('minus25').addEventListener('click', function () {addstep(-25);});
 	document.getElementById('minus10').addEventListener('click', function () { addstep(-10); });
+	document.getElementById('add10').addEventListener('click', function () {addstep(10);});
+	document.getElementById('add25').addEventListener('click', function () {addstep(25);});	
+
 	
  function addstep(step) {
 	 var bar = ractive.get('selectedObj');
@@ -73,18 +74,37 @@ var ractive = new Ractive({
 
 	 if (bar == 1) {
 		 ractive.set('percentage1', w);
-		 if (w <= 100) ractive.set('width1', w);
-		 if (w >= 100) ractive.set('width1', 100);
+		 if (w <= 100){
+			  ractive.set('width1', w);
+			  ractive.set('color1', '');
+		 }
+		 if (w > 100){
+			 	ractive.set('width1', 100);
+				ractive.set('color1', 'red');				
+		 	}
 	 }
 	 if (bar == 2) {
 		 ractive.set('percentage2', w);
-		 if (w <= 100) ractive.set('width2', w);
-		 if (w >= 100) ractive.set('width2', 100);
+		 if (w <= 100) {
+			 ractive.set('width2', w);
+			 ractive.set('color2', '');
+		 }
+		 if (w > 100) {
+			 ractive.set('width2', 100);
+ 		 	 ractive.set('color2', 'red');
+		 }
 	 }
 	 if (bar == 3) {
 		 ractive.set('percentage3', w);
-		 if (w <= 100) ractive.set('width3', w);
-		 if (w >= 100) ractive.set('width3', 100);
+		 if (w <= 100){		 	
+			  ractive.set('width3', w);
+ 		      ractive.set('color3', '');
+		 }
+		 if (w > 100) {
+			 ractive.set('width3', 100);
+			 ractive.set('color3', 'red');
+		 }
+			 
 	 }                  
 	}            
 </script>
