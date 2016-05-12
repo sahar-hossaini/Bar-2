@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Progress Bars Demo - test - Sahar</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<section id="content">
+  <h1>Progress Bars Demo</h1>
+  <div class="btncontainer">
+    <div class="barcontainer">
+      <div id="bar1" class="bar" data-w="0"> <span>0%</span> </div>
+    </div>
+    <div class="barcontainer">
+      <div id="bar2" class="bar" data-w="0" > <span>0%</span> </div>
+    </div>
+    <div class="barcontainer">
+      <div id="bar3" class="bar" data-w="0" > <span>0%</span> </div>
+    </div>
+    <select id="selectObj">
+      <option value="bar1">#Progress 1</option>
+      <option value="bar2">#Progress 2</option>
+      <option value="bar3">#Progress 3</option>
+    </select>
+    <button onclick="addstep(10)">+10</button>
+    <button onclick="addstep(25)">+25</button>
+    <button onclick="addstep(-25)">-25</button>
+    <button onclick="addstep(-10)">-10</button>
+  </div>
+</section>
+<script>
+function addstep(step) {
+   var e = document.getElementById("selectObj");
+   var Obj = document.getElementById(e.options[e.selectedIndex].value);
+   var w = parseInt(Obj.getAttribute('data-w'));
+   w = w + step;
+   if(w <= 0) w = 0;
+
+   Obj.setAttribute('data-w', w );
+
+    if(w  <= 100)
+      Obj.style.width = w + '%'
+
+    if(w >= 100)
+     {
+      Obj.className = "bar red";
+      Obj.style.width = '100%'
+    }
+
+    Obj.firstElementChild.innerHTML= w  + "%"
+}
+
+
+</script>
+</body>
+</html>

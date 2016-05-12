@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+<meta charset='utf-8'>
+<title>Progress Bars Demo - test - Sahar</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<section id="content"> </section>
+<script id='template' type='text/ractive'>
+ <h1>Progress Bars Demo</h1>
+ <div class="btncontainer">
+	<div class="barcontainer">
+		<div id="bar1" class="bar" style='width:{{width1}}%;'>
+			<span>{{percentage1}}%</span>
+		</div>
+	</div>
+	<div class="barcontainer">
+		<div id="bar2" class="bar" style='width:{{width2}}%;'>
+			<span>{{percentage2}}%</span>
+		</div>
+	</div>
+	<div class="barcontainer">
+		<div id="bar3" class="bar" style='width:{{width3}}%;'>
+			<span>{{percentage3}}%</span>
+		</div>
+	</div>
+	<select value='{{selectedObj}}'>
+		{{#selectObj}}
+			 <option value='{{value}}'>{{name}}</option>
+	   {{/selectObj}}
+	</select>
+
+	 <button id='minus10'>-10</button>
+	 <button id='minus25'>-25</button>
+	 <button id='add25' >+25</button>
+	 <button id='add10' >+10</button>
+</div>
+</script> 
+<script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script> 
+<script>
+var ractive = new Ractive({
+	el: '#content',
+	template: '#template',
+	data: { percentage1: 0,
+			percentage2:0,
+			percentage3:0,
+			width1:0,
+			width2:0,
+			width3:0,
+			selectObj: [
+			   { value: '1', name: '#Progress 1' },
+			   { value: '2', name: '#Progress 2' },
+			   { value: '3', name: '#Progress 3' }
+		   ]
+		}
+
+	});
+	document.getElementById('add10').addEventListener('click', function () {addstep(10);});
+	document.getElementById('add25').addEventListener('click', function () {addstep(25);});
+	document.getElementById('minus25').addEventListener('click', function () {addstep(-25);});
+	document.getElementById('minus10').addEventListener('click', function () { addstep(-10); });
+	
+ function addstep(step) {
+	 var bar = ractive.get('selectedObj');
+	 var w;
+
+	 if (bar == 1) w = ractive.get('percentage1');
+	 if (bar == 2) w = ractive.get('percentage2');
+	 if (bar == 3) w = ractive.get('percentage3');
+	 w = w + step;
+	 if (w <= 0) w = 0;
+
+	 if (bar == 1) {
+		 ractive.set('percentage1', w);
+		 if (w <= 100) ractive.set('width1', w);
+		 if (w >= 100) ractive.set('width1', 100);
+	 }
+	 if (bar == 2) {
+		 ractive.set('percentage2', w);
+		 if (w <= 100) ractive.set('width2', w);
+		 if (w >= 100) ractive.set('width2', 100);
+	 }
+	 if (bar == 3) {
+		 ractive.set('percentage3', w);
+		 if (w <= 100) ractive.set('width3', w);
+		 if (w >= 100) ractive.set('width3', 100);
+	 }                  
+	}            
+</script>
+</body>
+</html>

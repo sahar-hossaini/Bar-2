@@ -1,0 +1,145 @@
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box
+}
+body{
+	background:#ccc;
+	font-family: Helvetica, Arial, sans-serif;
+}
+#content {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(50% - 130px);
+	height: 200px;
+	margin: 0 auto;
+	background: #fff;
+	text-align: center;
+	box-shadow: 5px 5px 5px 5px #888888;
+	width:96%;
+	max-width:500px;
+	height:auto;
+	overflow:auto;
+	padding:20px;
+}
+#container {
+	width: 90%;
+	margin: 10px auto;
+	border: 1px solid #333;
+	text-align: center;
+	background: #fff;
+	position: relative;
+	overflow: auto;
+}
+#containerbar {
+}
+#bar {
+	background: #000;
+	float: left;
+	position: relative;
+
+	width: 0;
+	height: 30px;
+	color: #F7D006;
+}
+.bar span {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	font-size: 17px;
+	text-align: center;
+	max-width:300px;
+	left:0;
+	right:0;
+	margin:0 auto;
+	line-height:28px;
+}
+.bar.colorChange {
+	background: #9b0000;
+}
+h1 {
+	
+	font-size: 20px;
+	margin:0 0 20px 0;
+}
+
+select {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	margin:0;
+	text-align: left;
+	padding:6px 10px;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	background:	url(/images/arrow.png) no-repeat 93% 50%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius:5px;
+	border-radius: 5px;
+	width:150px
+}
+button {
+	border:0 none;
+	color: #000;
+	font-size: 14px;
+	padding: 7px;
+	text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: rgb(221, 221, 221);
+	background: -moz-linear-gradient(90deg, rgb(221, 221, 221) 20%, rgb(158, 158, 158) 60%);
+	background: -webkit-linear-gradient(90deg, rgb(221, 221, 221) 20%, rgb(158, 158, 158) 60%);
+	background: -o-linear-gradient(90deg, rgb(221, 221, 221) 20%, rgb(158, 158, 158) 60%);
+	background: -ms-linear-gradient(90deg, rgb(221, 221, 221) 20%, rgb(158, 158, 158) 60%);
+	background: linear-gradient(0deg, rgb(221, 221, 221) 20%, rgb(158, 158, 158) 60%);
+	-webkit-box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.75);
+	box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.75);
+}
+.btncontainer{
+	position:relative;
+	width:100%;
+	clear:both;
+}
+.barcontainer{
+	border: 1px solid #000;
+    height: 30px;
+    width: 90%;
+	margin:20px auto;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+}
+.bar{
+	  background: red; /* For browsers that do not support gradients */
+	  background: -webkit-linear-gradient(right, red , yellow); /* For Safari 5.1 to 6.0 */
+	  background: -o-linear-gradient(left, red, yellow); /* For Opera 11.1 to 12.0 */
+	  background: -moz-linear-gradient(left, red, yellow); /* For Firefox 3.6 to 15 */
+	  background: linear-gradient(to left, red , yellow); /* Standard syntax */
+	height:28px;
+	width:0;
+		-webkit-transition: width 1s ease-in-out;
+	-moz-transition: width 1s ease-in-out;
+	-o-transition: width 1s ease-in-out;
+	transition: width 1s ease-in-out;
+}
+
+.red{
+	background:red;
+}
+@media screen and (max-width : 445px) {
+	select{
+		width:90%;
+		margin:0 auto 30px auto;
+	}
+	#content{
+		 top: calc(50% - 170px);
+	}
+	
+}
